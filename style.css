@@ -477,6 +477,36 @@ p{ margin: 0.5rem 0; line-height: 1.7; color: rgba(234,240,255,0.90); }
 }
 .callout-body{ margin-top: 6px; color: rgba(234,240,255,0.88); line-height: 1.6; }
 
+.announcement-box{
+  background: linear-gradient(135deg, rgba(126,181,213,0.12), rgba(214,161,95,0.12));
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow2);
+  text-align: left;
+}
+.announcement-title{
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-align: left;
+}
+.announcement-box .checklist li strong{
+  color: var(--cyan);
+  font-weight: 600;
+}
+.announcement-box .checklist li a{
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(126,181,213,0.4);
+  transition: text-decoration-color .2s ease;
+}
+.announcement-box .checklist li a:hover{
+  text-decoration-color: var(--cyan);
+}
+
 .speaker-grid{
   display:grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
