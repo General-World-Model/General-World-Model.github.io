@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sense of Space: Multi-Sensory Modeling for Embodied Intelligence | CVPR 2026 Workshop</title>
-  <meta name="description" content="Sense of Space — a CVPR 2026 workshop on multi-sensory modeling for embodied intelligence." />
+  <title>General World Model — Non-profit Seminar Series</title>
+  <meta name="description" content="General World Model — a non-profit seminar organized by researchers working on general world models." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,9 @@
 
   <header class="topbar">
     <nav class="nav container">
-      <a class="brand" href="#top" aria-label="Sense of Space home">
+      <a class="brand" href="#top" aria-label="General World Model home">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">Sense of Space</span>
+        <span class="brand-text">General World Model</span>
       </a>
 
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -28,10 +28,10 @@
 
       <div class="nav-links" role="navigation" aria-label="Primary">
         <a href="#abstract">Overview</a>
-        <a href="cfp.html">Call for Papers</a>
-        <a href="#speakers">Speakers</a>
-        <a href="#schedule">Schedule</a>
+        <a href="cfp.html">Call for Talks</a>
         <a href="#organizers">Organizers</a>
+        <a href="speakers.html">Previous Speakers</a>
+        <a href="news.html">News</a>
         <a href="#sponsors">Sponsors</a>
         <a href="#contact" class="pill">Contact</a>
       </div>
@@ -40,34 +40,39 @@
 
   <main id="top">
     <section class="hero" aria-label="Hero">
-      <!--
-        Teaser logic (rewritten):
-        1) A blurred, "cover" backdrop fills the viewport.
-        2) A foreground <img> uses object-fit: contain so the FULL teaser is always visible.
-        This guarantees no left/right cropping while still feeling full-screen.
-      -->
-      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="hero-backdrop" style="background-image: url('assets/teaser_gwm.png');" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="hero-stage">
-        <img class="hero-teaser reveal" src="assets/teaser.webp" alt="Workshop teaser artwork" />
+        <img class="hero-teaser reveal" src="assets/teaser_gwm.png" alt="General World Model teaser artwork" />
       </div>
 
       <div class="hero-panel">
         <div class="container">
           <div class="hero-copy">
-            <p class="eyebrow">CVPR 2026 • 1st SOS Workshop • Full-day Workshop • June 2026 • Denver, Colorado, USA</p>
-            <h1>Sense of Space: Multi-Sensory Modeling for Embodied Intelligence</h1>
-            <p class="subtitle">in conjunction with CVPR 2026</p>
+            <p class="eyebrow">Non-profit seminar organized by researchers working on general world models</p>
+            <h1>General World Model</h1>
             <p class="lead">
-              with the first workshop focusing on <strong>emergent special sensory modalities, and hand-object dexterity manipulation</strong>.
+              Explore foundational concepts, recent research developments, and open challenges in building general world models.
             </p>
 
             <div class="cta-row">
-              <a class="btn primary" href="cfp.html">Call for Papers</a>
-              <a class="btn ghost" href="#speakers">Meet speakers</a>
+              <a class="btn primary" href="cfp.html">Call for Talks</a>
+              <a class="btn ghost" href="#organizers">Meet Organizers</a>
+              <a class="btn ghost" href="speakers.html">Previous Speakers</a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="opportunities" class="section">
+      <div class="container">
+        <div class="opportunity-box reveal">
+          <h2 class="opportunity-title">Opportunities</h2>
+          <p class="opportunity-body">
+            We enthusiastically invite you to engage in discussions and explore potential collaborations in any capacity. We are also welcoming computational resources support from industry. If you're interested in connecting or partnering with us, please don't hesitate to reach out via email.
+          </p>
         </div>
       </div>
     </section>
@@ -78,11 +83,8 @@
           <h2 class="announcement-title">Announcement</h2>
           <ul class="checklist">
             <li>
-              <strong>January 27:</strong> <a href="cfp.html">Call for Papers</a> is posted!
+              Next event will be announced soon.
             </li>
-            <li>
-              <strong>January 27:</strong> Thanks to <a href="#sponsors">our sponsors</a> for supporting travel grants and monetary awards for the Best Paper Awards.
-            </li> 
           </ul>
         </div>
       </div>
@@ -91,275 +93,13 @@
     <section id="abstract" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Workshop overview</h2>
+          <h2>Workshop Overview</h2>
         </div>
 
         <div class="grid-1">
           <div class="glass reveal">
-            <p>Embodied intelligence in humans and robots relies on the integration of multiple sensory modalities — vision, touch, sound, proprioception, bio-signals, and beyond — into coherent spatial understanding and actionable policies. While recent advances in AI have significantly improved language and visual perception, progress in <strong>real-world embodied intelligence</strong> remains fundamentally constrained by our ability to model, align, and learn from <strong>multi-sensory physical interactions</strong>.</p>
-            <p>Sense of Space is a full-day CVPR 2026 workshop that brings together researchers working across sensing hardware, data acquisition, representation learning, and embodied applications. To provide focus within this broad and critical space, the 2026 edition centers on <strong>emergent special sensory modalities</strong>, and <strong>hand-object dexterity manipulation</strong>.</p>
-            <p>The workshop emphasizes challenges including novel sensing modalities, data-driven sensor design, large scale synchronized multi-sensory data collection, cross-modal spatial–temporal alignment, robustness to missing or noisy modalities, and generalizable representations for real-world manipulation in robotics & XR.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="speakers" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Invited Speakers</h2>
-          <p class="muted">
-            Speakers spanning sensor design, systems, algorithms, and applications.
-          </p>
-        </div>
-
-        <div class="speaker-grid">
-          
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/paul.jpg" alt="Paul Liang">
-          </div>
-          <div class="person-meta">
-            <h3>Paul Liang</h3>
-            <p class="muted">MIT Media Lab / MIT EECS</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/lingjie.jpg" alt="Lingjie Liu">
-          </div>
-          <div class="person-meta">
-            <h3>Lingjie Liu</h3>
-            <p class="muted">University of Pennsylvania</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/jitendra.jpg" alt="Jitendra Malik">
-          </div>
-          <div class="person-meta">
-            <h3>Jitendra Malik</h3>
-            <p class="muted">UC Berkeley / Amazon FAR</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/wojciech.jpg" alt="Wojciech Matusik">
-          </div>
-          <div class="person-meta">
-            <h3>Wojciech Matusik</h3>
-            <p class="muted">MIT CSAIL</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/lerrel.png" alt="Lerrel Pinto">
-          </div>
-          <div class="person-meta">
-            <h3>Lerrel Pinto</h3>
-            <p class="muted">NYU / Assured Robot Intelligence</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/marc.jpg" alt="Marc Pollefeys">
-          </div>
-          <div class="person-meta">
-            <h3>Marc Pollefeys</h3>
-            <p class="muted">ETH Zürich / Microsoft Spatial AI Lab</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/christian.jpg" alt="Christian Theobalt">
-          </div>
-          <div class="person-meta">
-            <h3>Christian Theobalt</h3>
-            <p class="muted">Max Planck Institute for Informatics</p>
-</div>
-        </article>
-        
-
-        <article class="person-card reveal">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/profile_speaker/xiaolong.jpg" alt="Xiaolong Wang">
-          </div>
-          <div class="person-meta">
-            <h3>Xiaolong Wang</h3>
-            <p class="muted">UC San Diego / Assured Robot Intelligence (ARI)</p>
-</div>
-        </article>
-        
-        </div>
-
-      </div>
-    </section>
-
-    <section id="schedule" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Schedule</h2>
-        </div>
-
-        <div class="glass reveal">
-          <div class="table-wrap" role="region" aria-label="Workshop schedule" tabindex="0">
-            <table class="schedule">
-              <thead>
-                <tr>
-                  <th style="width: 20%">Time</th>
-                  <th style="width: 40%">Session</th>
-                  <th style="width: 40%">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-        <tr>
-          <td colspan="3" style="padding: 20px 14px 10px; font-weight: 800; font-size: 1.1rem; color: rgba(234,240,255,0.95);">Morning Session: Sensing Hardware, System, and Datasets</td>
-        </tr>
-        
-        <tr>
-          <td class="time">08:30–08:40</td>
-          <td class="item">Welcome</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">08:40–09:15</td>
-          <td class="item">Keynote 1</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">09:15–09:50</td>
-          <td class="item">Keynote 2</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">09:50–10:15</td>
-          <td class="item">Oral spotlights (5×5 min)</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">10:15–10:30</td>
-          <td class="item">Coffee break</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">10:30–11:05</td>
-          <td class="item">Keynote 3</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">11:05–11:40</td>
-          <td class="item">Keynote 4</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">11:40–13:00</td>
-          <td class="item">Lunch + posters</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td colspan="3" style="padding: 20px 14px 10px; font-weight: 800; font-size: 1.1rem; color: rgba(234,240,255,0.95);">Afternoon Session: Algorithm and Application</td>
-        </tr>
-        
-        <tr>
-          <td class="time">13:00–13:05</td>
-          <td class="item">Welcome back</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">13:05–13:40</td>
-          <td class="item">Keynote 5</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">13:40–14:15</td>
-          <td class="item">Keynote 6</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">14:15–14:40</td>
-          <td class="item">Oral spotlights (5×5 min)</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">14:40–14:55</td>
-          <td class="item">Coffee break</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">14:55–15:30</td>
-          <td class="item">Keynote 7</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">15:30–16:05</td>
-          <td class="item">Keynote 8</td>
-          <td class="desc muted">Topic: TBD</td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">16:05–16:30</td>
-          <td class="item">Panel discussion</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">16:30–16:45</td>
-          <td class="item">Paper award ceremony</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-
-        <tr>
-          <td class="time">16:45–17:00</td>
-          <td class="item">Closing remarks</td>
-          <td class="desc muted"></td>
-        </tr>
-        
-              </tbody>
-            </table>
+            <p>A <strong>general world model</strong> aims to learn a unified representation of how the world evolves over time, capturing both physical dynamics and scene structure. Unlike task-specific models that focus on narrow prediction objectives, a general world model seeks to understand multi-modal information—such as RGB, depth, geometry, and actions—and predict future states in a coherent and physically consistent manner. By modeling temporal dynamics and spatial structure jointly, it can simulate future observations, reason about object interactions, and support decision-making in complex environments.</p>
+            <p>In robotics and embodied AI, general world models are particularly important because they enable long-horizon planning, counterfactual reasoning, and adaptation to novel scenarios. Rather than memorizing behavior patterns, the model learns underlying dynamics, allowing it to generalize across tasks and domains. Recent advances in large-scale video diffusion models, geometry-aware representations, and multimodal learning have significantly improved world modeling capabilities. Ultimately, a general world model serves as a foundation for intelligent agents that can perceive, predict, and act in the real world with robustness and flexibility.</p>
           </div>
         </div>
       </div>
@@ -368,157 +108,65 @@
     <section id="organizers" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Organizing Committee</h2>
+          <h2>Organizers</h2>
         </div>
 
-        <div class="organizer-grid">
-          
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/raofu.png" alt="Rao Fu">
-          <h4>Rao Fu</h4>
-          <p class="muted">Brown University</p>
-        </article>
-        
+        <div class="speaker-grid">
+          <article class="person-card reveal">
+            <div class="avatar-wrap">
+              <img class="avatar" src="assets/profile_organizer/kaichen.jpg" alt="Kaichen Zhou">
+            </div>
+            <div class="person-meta">
+              <h3>Kaichen Zhou</h3>
+              <p class="muted">Harvard / MIT Media Lab</p>
+            </div>
+          </article>
 
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/guanli.png" alt="Li Guan">
-          <h4>Li Guan</h4>
-          <p class="muted">Meta Reality Labs</p>
-        </article>
-        
+          <article class="person-card reveal">
+            <div class="avatar-wrap">
+              <img class="avatar" src="assets/profile_organizer/fangneng.png" alt="Fangneng Zhan">
+            </div>
+            <div class="person-meta">
+              <h3>Fangneng Zhan</h3>
+              <p class="muted">MIT</p>
+            </div>
+          </article>
 
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/kaichen.jpg" alt="Kaichen Zhou">
-          <h4>Kaichen Zhou</h4>
-          <p class="muted">Harvard / MIT Media Lab</p>
-        </article>
-        
+          <article class="person-card reveal">
+            <div class="avatar-wrap">
+              <img class="avatar" src="assets/profile_organizer/mengyu.jpg" alt="Mengyu Wang">
+            </div>
+            <div class="person-meta">
+              <h3>Mengyu Wang</h3>
+              <p class="muted">Harvard University</p>
+            </div>
+          </article>
 
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/kunhe.jpg" alt="Kun He">
-          <h4>Kun He</h4>
-          <p class="muted">Meta Reality Labs</p>
-        </article>
-        
+          <article class="person-card reveal">
+            <div class="avatar-wrap">
+              <img class="avatar" src="assets/profile_organizer/raofu.png" alt="Rao Fu">
+            </div>
+            <div class="person-meta">
+              <h3>Rao Fu</h3>
+              <p class="muted">Brown University</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/Tomas.jpg" alt="Tomas Hodan">
-          <h4>Tomas Hodan</h4>
-          <p class="muted">Meta Reality Labs</p>
-        </article>
-        
+    <section id="student-coordinator" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Student Coordinator</h2>
+        </div>
 
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/ergys.jpg" alt="Ergys Ristani">
-          <h4>Ergys Ristani</h4>
-          <p class="muted">Meta Reality Labs</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/erici.jpg" alt="Eric Yi">
-          <h4>Eric Yi</h4>
-          <p class="muted">Tsinghua University</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/jessica.jpg" alt="Jessica Yin">
-          <h4>Jessica Yin</h4>
-          <p class="muted">NVIDIA</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/qiye.jpg" alt="Qi Ye">
-          <h4>Qi Ye</h4>
-          <p class="muted">Zhejiang University</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/yichen.jpg" alt="Yichen Li">
-          <h4>Yichen Li</h4>
-          <p class="muted">MIT CSAIL</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/yining.jpg" alt="Yining Hong">
-          <h4>Yining Hong</h4>
-          <p class="muted">Stanford University</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/devin.jpg" alt="Devin Murphy">
-          <h4>Devin Murphy</h4>
-          <p class="muted">University of Washington</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/ray.png" alt="Ray Song">
-          <h4>Ray Song</h4>
-          <p class="muted">MIT Media Lab</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/xueyan.jpg" alt="Xueyan Zou">
-          <h4>Xueyan Zou</h4>
-          <p class="muted">Tsinghua University</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/yunzhu.jpg" alt="Yunzhu Li">
-          <h4>Yunzhu Li</h4>
-          <p class="muted">Columbia University</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/haoshu.jpg" alt="Hao-Shu Fang">
-          <h4>Hao-Shu Fang</h4>
-          <p class="muted">University of Maryland</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/ruoshi.jpg" alt="Ruoshi Liu">
-          <h4>Ruoshi Liu</h4>
-          <p class="muted">University of Maryland</p>
-        </article>
-        
-
-        <article class="org-card reveal">
-          <img class="avatar org-avatar" src="assets/profile_organizer/yiyue.jpg" alt="Yiyue Luo">
-          <h4>Yiyue Luo</h4>
-          <p class="muted">University of Washington</p>
-        </article>
-
-        
-        <article class="org-card reveal last-row third">
-          <img class="avatar org-avatar" src="assets/profile_organizer/vatsal.jpg" alt="Vatsal Mehta">
-          <h4>Vatsal Mehta</h4>
-          <p class="muted">Meta Reality Labs</p>
-        </article>
-
-
-        <article class="org-card reveal last-row first">
-          <img class="avatar org-avatar" src="assets/profile_organizer/mengyu.jpg" alt="Mengyu Wang">
-          <h4>Mengyu Wang</h4>
-          <p class="muted">Harvard University</p>
-        </article>
-        
-
-        <article class="org-card reveal last-row second">
-          <img class="avatar org-avatar" src="assets/profile_organizer/wojciech.jpg" alt="Wojciech Matusik">
-          <h4>Wojciech Matusik</h4>
-          <p class="muted">MIT CSAIL</p>
-        </article>
-        
+        <div class="organizer-grid" style="grid-template-columns: repeat(4, minmax(0,1fr)); justify-items: center;">
+          <article class="org-card reveal">
+            <img class="avatar org-avatar" src="assets/profile_coordinator/xinhai.png" alt="Xinhai Chang">
+            <h4>Xinhai Chang</h4>
+            <p class="muted">Peking University</p>
+          </article>
         </div>
       </div>
     </section>
@@ -527,23 +175,12 @@
       <div class="container">
         <div class="section-head">
           <h2>Sponsors</h2>
-          <p class="muted"></p>
-        </div>
-
-        <div class="sponsor-row reveal">
-          <a href="https://tech.facebook.com/reality-labs/2021/11/inside-reality-labs-meet-the-team-thats-bringing-touch-to-the-digital-world/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-            <img class="sponsor-logo" src="assets/sponsor/Meta-New-Logo.png" alt="Meta AI">
-          </a>
-          <a href="https://cyberbrain.us/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-            <img class="sponsor-logo" src="assets/sponsor/cyberbrain_new.png" alt="Cyberbrain">
-          </a>
         </div>
 
         <div class="callout reveal">
           <div class="callout-title">Sponsorship opportunities</div>
           <div class="callout-body">
-            Support poster awards, student travel, live streaming, and events — and connect with a concentrated
-            audience of embodied AI researchers and practitioners. Interested in supporting? Reach out.
+            Empower the next generation of researchers by sponsoring speaker travel and high-quality onsite hospitality, while gaining exclusive access to a premier community of embodied AI experts and world-model innovators—reach out to partner with us.
           </div>
         </div>
       </div>
@@ -559,7 +196,7 @@
           <div class="glass reveal">
             <h3>Contact</h3>
             <p class="big">
-              <a href="mailto:SenseOfSpace_org@outlook.com">SenseOfSpace_org@outlook.com</a>
+              <a href="mailto:general_world@outlook.com">general_world@outlook.com</a>
             </p>
             <p class="muted">
               Questions, sponsorship, or program committee interest.
@@ -568,7 +205,7 @@
         </div>
 
         <footer class="footer muted">
-          <span>© <span id="year"></span> Sense of Space • CVPR 2026 Workshops</span>
+          <span>© <span id="year"></span> General World Model Seminar</span>
         </footer>
       </div>
     </section>

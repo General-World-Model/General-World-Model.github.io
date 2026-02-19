@@ -173,7 +173,7 @@ a:hover{ text-decoration:none; }
 .hero-backdrop{
   position:absolute;
   inset:-28px;
-  background-image: url("assets/teaser.webp");
+  background-image: url("assets/teaser_gwm.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -693,6 +693,134 @@ table.mini th, table.mini td{ padding: 12px 12px; }
 }
 .step-t{ font-weight: 900; margin-bottom: 6px; }
 
+/* Opportunity box */
+.opportunity-box{
+  background: linear-gradient(135deg, rgba(126,181,213,0.10), rgba(214,161,95,0.10));
+  border: 1px solid rgba(126,181,213,0.25);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow2);
+}
+.opportunity-title{
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--cyan);
+}
+.opportunity-body{
+  color: rgba(234,240,255,0.88);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Talk cards (Previous Speakers page) */
+.talk-list{
+  display:flex;
+  flex-direction:column;
+  gap: 20px;
+}
+.talk-card{
+  padding: 24px 28px;
+}
+.talk-card-header{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+.talk-avatar-wrap{
+  flex-shrink:0;
+}
+.talk-avatar{
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+}
+.talk-info{
+  flex: 1;
+}
+.talk-speaker{
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.talk-affiliation{
+  margin: 0;
+  font-size: 0.92rem;
+}
+.talk-date-badge{
+  flex-shrink:0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.talk-body{}
+.talk-title{
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.talk-abstract{
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* News cards */
+.news-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.news-card{
+  padding: 24px 28px;
+}
+.news-card-meta{
+  margin-bottom: 10px;
+}
+.news-date{
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.news-card-title{
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.news-card-author{
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+}
+.news-card-summary{
+  margin: 0 0 14px;
+  line-height: 1.7;
+  color: rgba(234,240,255,0.88);
+}
+.news-card-tags{
+  display:flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.news-tag{
+  display:inline-flex;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(126,181,213,0.25);
+  background: rgba(126,181,213,0.08);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--cyan);
+}
+
 .reveal{
   opacity:0;
   transform: translateY(12px);
@@ -736,4 +864,6 @@ table.mini th, table.mini td{ padding: 12px 12px; }
   .sponsor-row{ grid-template-columns: 1fr; }
   .link-grid{ grid-template-columns: 1fr; }
   .steps{ grid-template-columns: 1fr; }
+  .talk-card-header{ flex-direction: column; align-items: flex-start; gap: 12px; }
+  .talk-date-badge{ align-self: flex-start; }
 }
