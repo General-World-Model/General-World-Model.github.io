@@ -1,16 +1,21 @@
-# Sense of Space Workshop Website (CVPR 2026)
+# General World Model — Seminar Series Website
 
-This folder contains a two-page static website:
+This folder contains the static website for the **General World Model** non-profit seminar series, organized by researchers working on general world models.
 
-- `index.html` — single-page website (Abstract, Speakers, Schedule, Organizers, Sponsors, Contact)
-- `cfp.html` — Call for Papers page (tracks + timeline)
+## Pages
+
+- `index.html` — Main page (Overview, Organizers, Sponsors, Contact)
+- `cfp.html` — Call for Talks page
+- `speakers.html` — Previous Speakers archive
+- `news.html` — News and research highlights
 
 ## Customize quickly
 
-- Background image: replace `assets/teaser.webp` with your own image, or edit `style.css` (`.hero-bg` background-image).
-- Speaker headshots: replace each speaker `<img class="avatar" ...>` `src` with a real headshot URL/path.
-- Organizer headshots: same for organizer cards.
-- Sponsor logos: replace `assets/sponsor1.svg` etc.
+- Background / teaser image: replace `assets/teaser_gwm.png` with your own image.
+- Organizer headshots: replace each `<img class="avatar" ...>` `src` with a real headshot URL/path.
+- Speaker cards on `speakers.html`: fill in name, affiliation, date, title, and abstract.
+- News cards on `news.html`: fill in research title, author, and summary.
+- Contact email: update `general_world@outlook.com` throughout.
 
 ## Run locally
 
