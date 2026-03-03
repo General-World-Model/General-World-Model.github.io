@@ -98,21 +98,21 @@ const coordinator = [
 
       <div class="team-group">
         <h3 class="group-label reveal">Organizers</h3>
-        <div class="person-grid person-grid--3 reveal-stagger">
+        <div class="person-grid reveal-stagger">
           {organizers.map((p) => <PersonCard {...p} />)}
         </div>
       </div>
 
       <div class="team-group">
         <h3 class="group-label reveal">Committee</h3>
-        <div class="person-grid person-grid--1 reveal-stagger">
+        <div class="person-grid reveal-stagger">
           {committee.map((p) => <PersonCard {...p} />)}
         </div>
       </div>
 
       <div class="team-group">
-        <h3 class="group-label reveal">Student Coordinator</h3>
-        <div class="person-grid person-grid--1 reveal-stagger">
+        <h3 class="group-label reveal">Coordinator</h3>
+        <div class="person-grid reveal-stagger">
           {coordinator.map((p) => <PersonCard {...p} />)}
         </div>
       </div>
@@ -329,21 +329,12 @@ const coordinator = [
   }
 
   .person-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
     gap: 1.5rem;
-    justify-items: center;
-  }
-
-  .person-grid--3 {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .person-grid--1 {
-    grid-template-columns: 1fr;
-    max-width: 280px;
-    margin: 0 auto;
+    width: 100%;
   }
 
   /* ═══════════════════════ SPONSORS ═══════════════════════ */
@@ -371,16 +362,24 @@ const coordinator = [
   }
 
   .sponsor-logo {
-    height: 48px;
+    height: 120px;
     width: auto;
-    opacity: 0.8;
-    filter: brightness(1.2) grayscale(0.3);
+    opacity: 0.9;
+    filter: brightness(1.2) grayscale(0.15);
     transition: all var(--transition);
+    padding: 1.25rem 2.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
   }
   .sponsor-logo:hover {
     opacity: 1;
     filter: brightness(1.4) grayscale(0);
-    transform: scale(1.08);
+    transform: scale(1.05) translateY(-4px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(79, 164, 212, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25),
+                0 0 20px var(--accent-glow);
   }
 
   /* ═══════════════════════ CONTACT ═══════════════════════ */
@@ -411,9 +410,8 @@ const coordinator = [
     .highlight-box {
       padding: 1.75rem;
     }
-    .person-grid--3 {
-      grid-template-columns: 1fr;
-      max-width: 320px;
+    .person-grid {
+      justify-content: center;
     }
   }
 </style>

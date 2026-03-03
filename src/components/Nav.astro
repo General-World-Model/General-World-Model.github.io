@@ -15,50 +15,110 @@ const links = [
 ---
 
 <header class="topbar">
-  <nav class="nav container">
-    <a class="brand" href="/" aria-label="General World Model home">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-text">General World Model</span>
-    </a>
+  <div class="nav-container">
+    <nav class="nav-island">
+      <a class="brand" href="/" aria-label="General World Model home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-mark-core"></span>
+          <span class="brand-mark-ring"></span>
+          <span class="brand-mark-halo"></span>
+        </span>
+        <span class="brand-text">General World Model</span>
+      </a>
 
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <div class="nav-links" role="navigation" aria-label="Primary">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[{ active: currentPage === link.href }]}
-        >
-          {link.label}
-        </a>
-      ))}
-      <a href="/#contact" class="pill">Contact</a>
-    </div>
-  </nav>
+      <div class="nav-links" role="navigation" aria-label="Primary">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[{ active: currentPage === link.href }]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <a href="/#contact" class="contact-pill-standalone shadow-glow">Contact</a>
+  </div>
 </header>
 
 <style>
+  /* ═══════ DYNAMIC ISLAND LAYOUT ═══════ */
   .topbar {
     position: fixed;
-    top: 0;
+    top: 16px;
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(7, 11, 20, 0.7);
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    transition: background 0.4s;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Allow clicks through empty space */
   }
 
-  .nav {
+  .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 72px;
-    gap: 2rem;
+    gap: 1.25rem;
+    pointer-events: auto; /* Re-enable for actual interative parts */
+    padding: 0 1.5rem;
+  }
+
+  /* The actual "Island" with border */
+  .nav-island {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1.75rem;
+    height: 56px;
+    border-radius: 50px;
+    background: rgba(10, 14, 26, 0.55);
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.45),
+      0 1.5px 0 rgba(255, 255, 255, 0.04) inset;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-island:hover {
+    background: rgba(10, 14, 26, 0.65);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 16px 48px rgba(0, 0, 0, 0.5),
+      0 1.5px 0 rgba(255, 255, 255, 0.06) inset;
+  }
+
+  /* Separate Contact Pill */
+  .contact-pill-standalone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    height: 48px; /* Slightly shorter than island for hierarchy */
+    border-radius: 50px;
+    background: rgba(10, 14, 26, 0.5);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(79, 164, 212, 0.4);
+    color: var(--accent-bright);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: all 0.35s var(--transition);
+    margin-left: 0.5rem; /* Additional separation */
+  }
+
+  .contact-pill-standalone:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 0 24px var(--accent-glow);
+    transform: translateY(-2px);
   }
 
   /* Brand */
@@ -72,24 +132,53 @@ const links = [
   }
 
   .brand-mark {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--mint) 100%);
-    box-shadow: 0 0 18px var(--accent-glow);
-    animation: brand-pulse 4s ease-in-out infinite alternate;
+    position: relative;
+    width: 28px;
+    height: 28px;
   }
 
-  @keyframes brand-pulse {
-    0% { box-shadow: 0 0 18px var(--accent-glow); }
-    100% { box-shadow: 0 0 28px var(--accent-glow), 0 0 8px var(--mint-glow); }
+  .brand-mark-core {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 35%, #a7dcf5 0%, var(--accent) 40%, #1a4462 100%);
+    box-shadow: 0 0 12px rgba(79, 164, 212, 0.6);
+    z-index: 2;
+  }
+
+  .brand-mark-ring {
+    position: absolute;
+    inset: 1px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(110, 192, 236, 0.35);
+    z-index: 3;
+    animation: ring-breathe 4s ease-in-out infinite;
+  }
+
+  .brand-mark-halo {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 164, 212, 0.25) 0%, transparent 70%);
+    z-index: 1;
+    animation: halo-pulse 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes ring-breathe {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.08); opacity: 1; }
+  }
+
+  @keyframes halo-pulse {
+    0% { transform: scale(0.9); opacity: 0.4; }
+    100% { transform: scale(1.3); opacity: 0.8; }
   }
 
   .brand-text {
     font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
   /* Links */
@@ -100,11 +189,11 @@ const links = [
   }
 
   .nav-links a {
-    padding: 0.45rem 0.9rem;
+    padding: 0.35rem 0.85rem;
     font-size: 0.88rem;
     font-weight: 500;
     color: var(--text-secondary);
-    border-radius: 8px;
+    border-radius: 20px;
     text-decoration: none;
     transition: all var(--transition);
     white-space: nowrap;
@@ -113,21 +202,7 @@ const links = [
   .nav-links a:hover,
   .nav-links a.active {
     color: var(--accent-bright);
-    background: rgba(79, 164, 212, 0.08);
-  }
-
-  .nav-links .pill {
-    margin-left: 0.5rem;
-    padding: 0.45rem 1.2rem;
-    border: 1px solid var(--accent);
-    border-radius: 50px;
-    color: var(--accent-bright);
-    font-weight: 600;
-  }
-  .nav-links .pill:hover {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 0 20px var(--accent-glow);
+    background: rgba(255, 255, 255, 0.06);
   }
 
   /* Mobile toggle */
@@ -142,7 +217,7 @@ const links = [
     z-index: 110;
   }
   .nav-toggle span {
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: var(--text);
     border-radius: 2px;
@@ -150,6 +225,22 @@ const links = [
   }
 
   @media (max-width: 900px) {
+    .nav-container {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .nav-island {
+      flex: 1;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0 1.25rem;
+    }
+
+    .contact-pill-standalone {
+      display: none; /* Hide on mobile island, put in menu */
+    }
+
     .nav-toggle {
       display: flex;
     }
@@ -164,40 +255,19 @@ const links = [
       align-items: flex-start;
       gap: 0.25rem;
       padding: 6rem 2rem 2rem;
-      background: rgba(10, 14, 26, 0.97);
+      background: rgba(10, 14, 26, 0.98);
       backdrop-filter: blur(24px);
       border-left: 1px solid var(--glass-border);
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .nav-links.open {
-      transform: translateX(0);
-    }
+    .nav-links.open { transform: translateX(0); }
 
     .nav-links a {
       font-size: 1.05rem;
       padding: 0.8rem 1rem;
       width: 100%;
-    }
-
-    .nav-links .pill {
-      margin-left: 0;
-      margin-top: 1rem;
-      text-align: center;
-      justify-content: center;
-      width: 100%;
-      display: flex;
-    }
-
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
     }
   }
 </style>
@@ -211,7 +281,6 @@ const links = [
       toggle.setAttribute("aria-expanded", String(!isOpen));
       links.classList.toggle("open");
     });
-
     // Close on link click (mobile)
     links.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => {
