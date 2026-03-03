@@ -1,28 +1,46 @@
-# General World Model — Seminar Series Website
+# Astro Starter Kit: Basics
 
-This folder contains the static website for the **General World Model** non-profit seminar series, organized by researchers working on general world models.
-
-## Pages
-
-- `index.html` — Main page (Overview, Organizers, Sponsors, Contact)
-- `cfp.html` — Call for Talks page
-- `speakers.html` — Previous Speakers archive
-- `news.html` — News and research highlights
-
-## Customize quickly
-
-- Background / teaser image: replace `assets/teaser_gwm.png` with your own image.
-- Organizer headshots: replace each `<img class="avatar" ...>` `src` with a real headshot URL/path.
-- Speaker cards on `speakers.html`: fill in name, affiliation, date, title, and abstract.
-- News cards on `news.html`: fill in research title, author, and summary.
-- Contact email: update `general_world@outlook.com` throughout.
-
-## Run locally
-
-Open `index.html` in a browser, or serve the folder:
-
-```bash
-python3 -m http.server 8000
+```sh
+npm create astro@latest -- --template basics
 ```
 
-Then visit http://localhost:8000
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
+
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
