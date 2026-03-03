@@ -1,0 +1,199 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Footer from "../components/Footer.astro";
+
+const newsItems = [
+  { date: "Coming Soon", title: "Research Title", author: "Author Name", summary: "A brief description or author-written summary of the new work will appear here. Stay tuned for exciting research highlights from our community.", tag: "World Model" },
+  { date: "Coming Soon", title: "Research Title", author: "Author Name", summary: "A brief description or author-written summary of the new work will appear here. Stay tuned for exciting research highlights from our community.", tag: "Embodied AI" },
+  { date: "Coming Soon", title: "Research Title", author: "Author Name", summary: "A brief description or author-written summary of the new work will appear here. Stay tuned for exciting research highlights from our community.", tag: "Robotics" },
+];
+---
+
+<Layout title="News | General World Model Seminar" description="News and research highlights from the General World Model seminar series.">
+  <Nav currentPage="/news" />
+
+  <!-- Mini Hero -->
+  <section class="hero-small">
+    <div class="hero-small-bg" aria-hidden="true"></div>
+    <div class="hero-small-content container">
+      <p class="eyebrow reveal">Non-profit seminar organized by researchers working on general world models</p>
+      <h1 class="reveal">News</h1>
+      <p class="lead reveal">
+        Research highlights, new work, and community updates related to general world models.
+      </p>
+      <div class="cta-row reveal">
+        <a class="btn ghost" href="/">Home</a>
+        <a class="btn ghost" href="/#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Grid -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading title="Recent Highlights" subtitle="New work and research promoted by our community" />
+
+      <div class="news-grid">
+        {newsItems.map((item) => (
+          <article class="news-card glass reveal">
+            <div class="news-meta">
+              <span class="news-date">{item.date}</span>
+              <span class="news-tag">{item.tag}</span>
+            </div>
+            <h3 class="news-title">{item.title}</h3>
+            <p class="news-author muted">{item.author}</p>
+            <p class="news-summary">{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="back-link reveal">
+      <a href="/">← Back to main site</a>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Mini hero */
+  .hero-small {
+    position: relative;
+    padding: 10rem 0 5rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-small-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(100, 224, 200, 0.08) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .hero-small-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-small h1 {
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, var(--text) 30%, var(--mint) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* News grid */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition);
+  }
+  .news-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(100, 224, 200, 0.2);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .news-date {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .news-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(100, 224, 200, 0.1);
+    color: var(--mint);
+    border: 1px solid rgba(100, 224, 200, 0.15);
+  }
+
+  .news-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--text);
+  }
+
+  .news-author {
+    font-size: 0.88rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .news-summary {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    flex: 1;
+  }
+
+  /* Back link */
+  .back-link {
+    padding: 2rem 0 1rem;
+  }
+  .back-link a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color var(--transition);
+  }
+  .back-link a:hover {
+    color: var(--accent-bright);
+  }
+
+  @media (max-width: 768px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

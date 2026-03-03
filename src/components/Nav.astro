@@ -1,0 +1,223 @@
+---
+interface Props {
+  currentPage?: string;
+}
+const { currentPage = "/" } = Astro.props;
+
+const links = [
+  { href: "/#overview", label: "Overview" },
+  { href: "/cfp", label: "Call for Talks" },
+  { href: "/#organizers", label: "Organizers" },
+  { href: "/speakers", label: "Speakers" },
+  { href: "/news", label: "News" },
+  { href: "/#sponsors", label: "Sponsors" },
+];
+---
+
+<header class="topbar">
+  <nav class="nav container">
+    <a class="brand" href="/" aria-label="General World Model home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">General World Model</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" role="navigation" aria-label="Primary">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[{ active: currentPage === link.href }]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/#contact" class="pill">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(7, 11, 20, 0.7);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.4s;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 2rem;
+  }
+
+  /* Brand */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--mint) 100%);
+    box-shadow: 0 0 18px var(--accent-glow);
+    animation: brand-pulse 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes brand-pulse {
+    0% { box-shadow: 0 0 18px var(--accent-glow); }
+    100% { box-shadow: 0 0 28px var(--accent-glow), 0 0 8px var(--mint-glow); }
+  }
+
+  .brand-text {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* Links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-links a {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition);
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent-bright);
+    background: rgba(79, 164, 212, 0.08);
+  }
+
+  .nav-links .pill {
+    margin-left: 0.5rem;
+    padding: 0.45rem 1.2rem;
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+    color: var(--accent-bright);
+    font-weight: 600;
+  }
+  .nav-links .pill:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  /* Mobile toggle */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 110;
+  }
+  .nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(320px, 85vw);
+      height: 100vh;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      padding: 6rem 2rem 2rem;
+      background: rgba(10, 14, 26, 0.97);
+      backdrop-filter: blur(24px);
+      border-left: 1px solid var(--glass-border);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-links.open {
+      transform: translateX(0);
+    }
+
+    .nav-links a {
+      font-size: 1.05rem;
+      padding: 0.8rem 1rem;
+      width: 100%;
+    }
+
+    .nav-links .pill {
+      margin-left: 0;
+      margin-top: 1rem;
+      text-align: center;
+      justify-content: center;
+      width: 100%;
+      display: flex;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+  if (toggle && links) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      links.classList.toggle("open");
+    });
+
+    // Close on link click (mobile)
+    links.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        toggle.setAttribute("aria-expanded", "false");
+        links.classList.remove("open");
+      });
+    });
+  }
+</script>

@@ -1,0 +1,220 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Footer from "../components/Footer.astro";
+
+const talks = [
+  { speaker: "Speaker Name", affiliation: "Affiliation", date: "TBD", title: "Talk Title — To Be Announced", abstract: "Topic and abstract will be announced soon.", image: "/assets/profile_speaker/paul.jpg" },
+  { speaker: "Speaker Name", affiliation: "Affiliation", date: "TBD", title: "Talk Title — To Be Announced", abstract: "Topic and abstract will be announced soon.", image: "/assets/profile_speaker/lingjie.jpg" },
+  { speaker: "Speaker Name", affiliation: "Affiliation", date: "TBD", title: "Talk Title — To Be Announced", abstract: "Topic and abstract will be announced soon.", image: "/assets/profile_speaker/jitendra.jpg" },
+];
+---
+
+<Layout title="Previous Speakers | General World Model Seminar" description="Previous speakers who have presented at the General World Model seminar series.">
+  <Nav currentPage="/speakers" />
+
+  <!-- Mini Hero -->
+  <section class="hero-small">
+    <div class="hero-small-bg" aria-hidden="true"></div>
+    <div class="hero-small-content container">
+      <p class="eyebrow reveal">Non-profit seminar organized by researchers working on general world models</p>
+      <h1 class="reveal">Previous Speakers</h1>
+      <p class="lead reveal">
+        Talks from researchers who have presented at the General World Model seminar series.
+      </p>
+      <div class="cta-row reveal">
+        <a class="btn ghost" href="/">Home</a>
+        <a class="btn ghost" href="/#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Talk Archive -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading title="Talk Archive" subtitle="Past talks and presentations" />
+
+      <div class="talk-list">
+        {talks.map((talk) => (
+          <div class="talk-card glass reveal">
+            <div class="talk-header">
+              <div class="talk-avatar-wrap">
+                <img class="talk-avatar" src={talk.image} alt={talk.speaker} loading="lazy" />
+              </div>
+              <div class="talk-info">
+                <h3 class="talk-speaker">{talk.speaker}</h3>
+                <p class="talk-affiliation muted">{talk.affiliation}</p>
+              </div>
+              <div class="talk-date">
+                <span>{talk.date}</span>
+              </div>
+            </div>
+            <div class="talk-body">
+              <h4 class="talk-title">{talk.title}</h4>
+              <p class="talk-abstract muted">{talk.abstract}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="back-link reveal">
+      <a href="/">← Back to main site</a>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Mini hero */
+  .hero-small {
+    position: relative;
+    padding: 10rem 0 5rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-small-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(79, 164, 212, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .hero-small-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-small h1 {
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, var(--text) 30%, var(--accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Talk cards */
+  .talk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .talk-card {
+    transition: all var(--transition);
+  }
+  .talk-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .talk-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .talk-avatar-wrap {
+    flex-shrink: 0;
+  }
+
+  .talk-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(79, 164, 212, 0.2);
+  }
+
+  .talk-info {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .talk-speaker {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+
+  .talk-affiliation {
+    font-size: 0.88rem;
+  }
+
+  .talk-date {
+    flex-shrink: 0;
+    padding: 0.35rem 0.85rem;
+    background: rgba(79, 164, 212, 0.1);
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .talk-body {
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .talk-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .talk-abstract {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Back link */
+  .back-link {
+    padding: 2rem 0 1rem;
+  }
+  .back-link a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color var(--transition);
+  }
+  .back-link a:hover {
+    color: var(--accent-bright);
+  }
+</style>

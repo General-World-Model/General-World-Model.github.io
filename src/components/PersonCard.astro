@@ -1,0 +1,94 @@
+---
+interface Props {
+  name: string;
+  affiliation: string;
+  image: string;
+  url?: string;
+}
+const { name, affiliation, image, url } = Astro.props;
+---
+
+<article class="person-card">
+  <div class="avatar-ring">
+    <img class="avatar" src={image} alt={name} loading="lazy" />
+  </div>
+  <div class="person-meta">
+    {url ? (
+      <h3><a href={url} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+    ) : (
+      <h3>{name}</h3>
+    )}
+    <p class="affiliation">{affiliation}</p>
+  </div>
+</article>
+
+<style>
+  .person-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.25rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all var(--transition);
+    cursor: default;
+  }
+
+  .person-card:hover {
+    transform: translateY(-6px);
+    background: var(--glass-hover);
+    border-color: rgba(79, 164, 212, 0.2);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3),
+                0 0 30px var(--accent-glow);
+  }
+
+  .avatar-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--mint) 100%);
+    margin-bottom: 1.25rem;
+    transition: all var(--transition);
+  }
+
+  .person-card:hover .avatar-ring {
+    box-shadow: 0 0 24px var(--accent-glow);
+  }
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 3px solid var(--bg-base);
+  }
+
+  .person-meta h3 {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .person-meta h3 a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .person-meta h3 a:hover {
+    color: var(--accent-bright);
+  }
+
+  .affiliation {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 400;
+  }
+</style>

@@ -1,11 +1,419 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import PersonCard from "../components/PersonCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Footer from "../components/Footer.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const organizers = [
+  { name: "Kaichen Zhou", affiliation: "Harvard / MIT Media Lab", image: "/assets/profile_organizer/kaichen.jpg", url: "https://kaichen-z.github.io/" },
+  { name: "Fangneng Zhan", affiliation: "MIT", image: "/assets/profile_organizer/fangneng.png", url: "https://fnzhan.com/" },
+  { name: "Rao Fu", affiliation: "Brown University", image: "/assets/profile_organizer/raofu.png", url: "https://freddierao.github.io/" },
+];
+
+const committee = [
+  { name: "Mengyu Wang", affiliation: "Harvard University", image: "/assets/profile_organizer/mengyu.jpg", url: "https://wang.hms.harvard.edu/team/dr-wang/" },
+];
+
+const coordinator = [
+  { name: "Xinhai Chang", affiliation: "Peking University", image: "/assets/profile_coordinator/xinhai.png", url: "https://chang-xinhai.github.io/" },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <Nav currentPage="/" />
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-backdrop" aria-hidden="true">
+      <img src="/assets/teaser_gwm.png" alt="" />
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-radial" aria-hidden="true"></div>
+
+    <div class="hero-content container">
+      <p class="eyebrow reveal">Non-profit seminar organized by researchers working on general world models</p>
+      <h1 class="reveal">General World Model</h1>
+      <p class="lead reveal">
+        Explore foundational concepts, recent research developments, and open challenges in building general world models.
+      </p>
+      <div class="cta-row reveal">
+        <a class="btn primary" href="/cfp">Call for Talks</a>
+        <a class="btn ghost" href="#organizers">Meet Organizers</a>
+        <a class="btn ghost" href="/speakers">Previous Speakers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+  <section id="overview" class="section">
+    <div class="container">
+      <SectionHeading title="Workshop Overview" />
+      <div class="glass reveal overview-content">
+        <p>
+          A <strong>general world model</strong> aims to learn a unified representation of how the world evolves
+          over time, capturing both physical dynamics and scene structure. Unlike task-specific models that focus on
+          narrow prediction objectives, a general world model seeks to understand multi-modal information—such as
+          RGB, depth, geometry, and actions—and predict future states in a coherent and physically consistent manner.
+        </p>
+        <p>
+          In robotics and embodied AI, general world models are particularly important because they enable
+          long-horizon planning, counterfactual reasoning, and adaptation to novel scenarios. Rather than memorizing
+          behavior patterns, the model learns underlying dynamics, allowing it to generalize across tasks and domains.
+          Recent advances in large-scale video diffusion models, geometry-aware representations, and multimodal learning
+          have significantly improved world modeling capabilities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ OPPORTUNITIES ═══════════════════════ -->
+  <section id="opportunities" class="section">
+    <div class="container">
+      <div class="highlight-box reveal">
+        <div class="highlight-badge">✦ Opportunities</div>
+        <p>
+          We enthusiastically invite you to engage in discussions and explore potential collaborations in any capacity.
+          We are also welcoming computational resources support from industry. If you're interested in connecting or
+          partnering with us, please don't hesitate to reach out via email.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ ANNOUNCEMENT ═══════════════════════ -->
+  <section id="announcement" class="section">
+    <div class="container">
+      <div class="highlight-box highlight-box--accent reveal">
+        <div class="highlight-badge">📢 Announcement</div>
+        <p>Next event will be announced soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ ORGANIZERS ═══════════════════════ -->
+  <section id="organizers" class="section">
+    <div class="container">
+      <SectionHeading title="Team" subtitle="The people behind the General World Model seminar series" />
+
+      <div class="team-group">
+        <h3 class="group-label reveal">Organizers</h3>
+        <div class="person-grid person-grid--3 reveal-stagger">
+          {organizers.map((p) => <PersonCard {...p} />)}
+        </div>
+      </div>
+
+      <div class="team-group">
+        <h3 class="group-label reveal">Committee</h3>
+        <div class="person-grid person-grid--1 reveal-stagger">
+          {committee.map((p) => <PersonCard {...p} />)}
+        </div>
+      </div>
+
+      <div class="team-group">
+        <h3 class="group-label reveal">Student Coordinator</h3>
+        <div class="person-grid person-grid--1 reveal-stagger">
+          {coordinator.map((p) => <PersonCard {...p} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SPONSORS ═══════════════════════ -->
+  <section id="sponsors" class="section">
+    <div class="container">
+      <SectionHeading title="Sponsors" />
+      <div class="sponsor-callout glass reveal">
+        <h3>Sponsorship Opportunities</h3>
+        <p>
+          Empower the next generation of researchers by sponsoring speaker travel and high-quality onsite hospitality,
+          while gaining exclusive access to a premier community of embodied AI experts and world-model innovators — reach out to partner with us.
+        </p>
+      </div>
+      <div class="sponsor-logos reveal">
+        <img src="/assets/sponsor/Meta-New-Logo.png" alt="Meta" class="sponsor-logo" />
+        <img src="/assets/sponsor/cyberbrain_new.png" alt="Cyberbrain" class="sponsor-logo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <SectionHeading title="Contact" />
+      <div class="glass reveal contact-box">
+        <p class="contact-email">
+          <a href="mailto:general_world@outlook.com">general_world@outlook.com</a>
+        </p>
+        <p class="muted">Questions, sponsorship, or program committee interest.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
+
+<style>
+  /* ═══════════════════════ HERO ═══════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-backdrop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.18;
+    filter: saturate(0.5) brightness(0.5);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(7, 11, 20, 0.6) 0%,
+      rgba(10, 14, 26, 0.85) 50%,
+      var(--bg-base) 100%
+    );
+  }
+
+  .hero-radial {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 70% 50% at 50% 40%,
+      rgba(79, 164, 212, 0.08) 0%,
+      transparent 70%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 4rem 2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--text) 30%, var(--accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ═══════════════════════ OVERVIEW ═══════════════════════ */
+  .overview-content p {
+    margin-bottom: 1.25rem;
+  }
+  .overview-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ═══════════════════════ HIGHLIGHT BOXES ═══════════════════════ */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(79, 164, 212, 0.06) 0%, rgba(100, 224, 200, 0.04) 100%);
+    border: 1px solid rgba(79, 164, 212, 0.15);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+    transition: all var(--transition);
+  }
+  .highlight-box:hover {
+    border-color: rgba(79, 164, 212, 0.3);
+    box-shadow: 0 0 40px rgba(79, 164, 212, 0.08);
+  }
+
+  .highlight-box--accent {
+    background: linear-gradient(135deg, rgba(100, 224, 200, 0.06) 0%, rgba(79, 164, 212, 0.04) 100%);
+    border-color: rgba(100, 224, 200, 0.15);
+  }
+  .highlight-box--accent:hover {
+    border-color: rgba(100, 224, 200, 0.3);
+    box-shadow: 0 0 40px rgba(100, 224, 200, 0.08);
+  }
+
+  .highlight-badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-bright);
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .highlight-box--accent .highlight-badge {
+    color: var(--mint);
+  }
+
+  .highlight-box p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ═══════════════════════ TEAM / PEOPLE ═══════════════════════ */
+  .team-group {
+    margin-bottom: 3.5rem;
+  }
+  .team-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .group-label {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .group-label::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0.6rem auto 0;
+    border-radius: 1px;
+    opacity: 0.5;
+  }
+
+  .person-grid {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .person-grid--3 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .person-grid--1 {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* ═══════════════════════ SPONSORS ═══════════════════════ */
+  .sponsor-callout {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .sponsor-callout h3 {
+    font-family: var(--font-display);
+    color: var(--accent-bright);
+    margin-bottom: 1rem;
+  }
+  .sponsor-callout p {
+    line-height: 1.75;
+  }
+
+  .sponsor-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sponsor-logo {
+    height: 48px;
+    width: auto;
+    opacity: 0.8;
+    filter: brightness(1.2) grayscale(0.3);
+    transition: all var(--transition);
+  }
+  .sponsor-logo:hover {
+    opacity: 1;
+    filter: brightness(1.4) grayscale(0);
+    transform: scale(1.08);
+  }
+
+  /* ═══════════════════════ CONTACT ═══════════════════════ */
+  .contact-box {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .contact-email {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-email a {
+    font-weight: 600;
+    color: var(--accent-bright);
+  }
+
+  /* ═══════════════════════ RESPONSIVE ═══════════════════════ */
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: 3rem 1.25rem;
+    }
+    .lead {
+      font-size: 1.05rem;
+    }
+    .highlight-box {
+      padding: 1.75rem;
+    }
+    .person-grid--3 {
+      grid-template-columns: 1fr;
+      max-width: 320px;
+    }
+  }
+</style>

@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Call for Talks | General World Model Seminar" description="Call for Talks — General World Model: a non-profit seminar series on general world models.">
+  <Nav currentPage="/cfp" />
+
+  <!-- Mini Hero -->
+  <section class="hero-small">
+    <div class="hero-small-bg" aria-hidden="true"></div>
+    <div class="hero-small-content container">
+      <p class="eyebrow reveal">Non-profit seminar organized by researchers working on general world models</p>
+      <h1 class="reveal">Call for Talks</h1>
+      <p class="lead reveal">
+        Share your research on general world models — we welcome presentations covering video-based world models,
+        diffusion modeling, geometry-aware representations, embodied AI, robotics, and more.
+      </p>
+      <div class="cta-row reveal">
+        <a class="btn ghost" href="/speakers">Previous Speakers</a>
+        <a class="btn ghost" href="/#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading title="Overview" />
+      <div class="glass reveal cfp-body">
+        <p>
+          We invite researchers, students, and practitioners to contribute talks to our seminar series on
+          <strong>General World Models</strong>. This series focuses on emerging approaches to modeling how the world
+          evolves over time, integrating perception, geometry, dynamics, and decision-making into unified frameworks.
+        </p>
+        <p>
+          The goal of this seminar is to foster interdisciplinary discussion and exchange ideas on building scalable,
+          robust, and generalizable world models that can support intelligent agents operating in complex environments.
+          Both theoretical and applied perspectives are encouraged, as well as early-stage research, system demonstrations,
+          and critical analyses of current limitations.
+        </p>
+        <p>
+          If you are interested in sharing your work or leading a discussion session, we warmly encourage you to submit
+          a talk proposal. To help structure your submission, we suggest submitting a one-page document (PDF preferred)
+          that includes the following:
+        </p>
+        <ul class="bullets">
+          <li><strong>Title and Abstract:</strong> A clear, concise overview of the core problem and your approach.</li>
+          <li><strong>Key Discussion Points:</strong> 2–3 main takeaways or questions you'd like to pose to the audience.</li>
+          <li><strong>Brief Speaker Bio:</strong> A short paragraph detailing your background and prior related work.</li>
+        </ul>
+        <p class="closing">We look forward to engaging conversations and collaborative exploration of this rapidly evolving research area.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading title="Submit a Proposal" subtitle="For questions or to submit a talk proposal, please contact:" />
+      <div class="glass reveal contact-card">
+        <p class="org-name">General World Model Organizers</p>
+        <p class="email-link"><a href="mailto:general_world@outlook.com">general_world@outlook.com</a></p>
+        <p class="muted closing-note">
+          We look forward to your contributions and to fostering discussion and collaboration around building general world models.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="back-link reveal">
+      <a href="/">← Back to main site</a>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Mini hero */
+  .hero-small {
+    position: relative;
+    padding: 10rem 0 5rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-small-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(79, 164, 212, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .hero-small-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-small h1 {
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, var(--text) 30%, var(--accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* CFP Body */
+  .cfp-body {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .cfp-body p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .bullets {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+  .bullets li {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.75rem;
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--glass-border);
+    line-height: 1.7;
+  }
+  .bullets li:last-child {
+    border-bottom: none;
+  }
+  .bullets li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  .closing {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* Contact card */
+  .contact-card {
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .org-name {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+  .email-link {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+  }
+  .email-link a {
+    font-weight: 600;
+  }
+  .closing-note {
+    font-size: 0.92rem;
+  }
+
+  /* Back link */
+  .back-link {
+    padding: 2rem 0 1rem;
+  }
+  .back-link a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color var(--transition);
+  }
+  .back-link a:hover {
+    color: var(--accent-bright);
+  }
+</style>
